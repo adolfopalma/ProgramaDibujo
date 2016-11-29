@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/panel_dibujo"
+            android:icon="@android:drawable/alert_light_frame"
+            android:title="Panel de dibujo" />
+        <item
+            android:id="@+id/cambiarRojo"
+            android:icon="@android:color/holo_red_dark"
+            android:title="Fondo en rojo" />
+        <item
+            android:id="@+id/cambiarBlanco"
+            android:icon="@android:color/white"
+            android:title="Fondo en blanco" />
+        <item
+            android:id="@+id/cambiarGris"
+            android:icon="@android:color/darker_gray"
+            android:title="Fondo en gris" />
+        <item
+            android:id="@+id/cambiarVerde"
+            android:icon="@android:color/holo_green_light"
+            android:title="Fondo en verde" />
+    </group>
+
+</menu>
