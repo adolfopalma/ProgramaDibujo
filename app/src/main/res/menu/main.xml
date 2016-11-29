@@ -3,6 +3,113 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
+
+    <item
+        android:id="@+id/grosor"
+        android:orderInCategory="100"
+        android:title="@string/pincel"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_compass">
+
+        <menu>
+            <item
+                android:id="@+id/cinco"
+                android:orderInCategory="100"
+                android:title="@string/cinco"
+                app:showAsAction="always"
+                android:icon="@android:color/holo_red_dark"/>
+            <item
+                android:id="@+id/quince"
+                android:orderInCategory="100"
+                android:title="@string/quince"
+                app:showAsAction="always"
+                android:icon="@android:color/holo_blue_dark"/>
+            <item
+                android:id="@+id/veinticinco"
+                android:orderInCategory="100"
+                android:title="@string/veinticinco"
+                app:showAsAction="always"
+                android:icon="@android:color/black"/>
+            <item
+                android:id="@+id/cuarenta"
+                android:orderInCategory="100"
+                android:title="@string/cuarenta"
+                app:showAsAction="always"
+                android:icon="@android:color/holo_green_light"/>
+
+
+        </menu>
+
+    </item>
+
+
+    <item
+        android:id="@+id/pincel"
+        android:orderInCategory="100"
+        android:title="@string/pincel"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_edit">
+
+        <menu>
+            <item
+                android:id="@+id/rojo"
+                android:orderInCategory="100"
+                android:title="@string/rojo"
+                app:showAsAction="always"
+                android:icon="@android:color/holo_red_dark"/>
+            <item
+                android:id="@+id/azul"
+                android:orderInCategory="100"
+                android:title="@string/azul"
+                app:showAsAction="always"
+                android:icon="@android:color/holo_blue_dark"/>
+            <item
+                android:id="@+id/negro"
+                android:orderInCategory="100"
+                android:title="@string/negro"
+                app:showAsAction="always"
+                android:icon="@android:color/black"/>
+            <item
+                android:id="@+id/verde"
+                android:orderInCategory="100"
+                android:title="@string/verde"
+                app:showAsAction="always"
+                android:icon="@android:color/holo_green_light"/>
+
+
+        </menu>
+
+    </item>
+
+    <item
+        android:id="@+id/figuras"
+        android:orderInCategory="100"
+        android:title="@string/figuras"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_crop">
+
+        <menu>
+            <item
+                android:id="@+id/circulo"
+                android:orderInCategory="100"
+                android:title="@string/circulo"
+                app:showAsAction="always"
+                android:icon="@android:drawable/ic_notification_overlay"/>
+            <item
+                android:id="@+id/cuadrado"
+                android:orderInCategory="100"
+                android:title="@string/cuadrado"
+                app:showAsAction="always"
+                android:icon="@android:drawable/picture_frame"/>
+            <item
+                android:id="@+id/lapiz"
+                android:orderInCategory="100"
+                android:title="@string/lapiz"
+                app:showAsAction="always"
+                android:icon="@android:drawable/ic_menu_edit"/>
+        </menu>
+    </item>
+
     <item
         android:id="@+id/borrar"
         android:orderInCategory="100"
@@ -11,11 +118,13 @@
         android:icon="@android:drawable/ic_delete"/>
 
     <item
-        android:id="@+id/guardar"
+        android:id="@+id/salir"
         android:orderInCategory="100"
-        android:title="@string/guardar"
+        android:title="@string/salir"
         app:showAsAction="always"
-        android:icon="@android:drawable/ic_menu_save"/>
+        android:icon="@android:drawable/ic_lock_power_off"/>
+
+
 
 
 </menu>

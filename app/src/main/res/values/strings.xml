@@ -6,5 +6,19 @@
 
     <string name="borrar">Borrar todo</string>
     <string name="guardar">Guardar dibujo</string>
+    <string name="figuras">Figuras</string>
+    <string name="cuadrado">Cuadrado</string>
+    <string name="circulo">Circulo</string>
+    <string name="pincel">Color Pincel</string>
+    <string name="rojo">Rojo</string>
+    <string name="azul">Azul</string>
+    <string name="negro">Negro</string>
+    <string name="verde">Verde</string>
+    <string name="cinco">Grosor 5</string>
+    <string name="quince">Grosor 15</string>
+    <string name="veinticinco">Grosor 25</string>
+    <string name="cuarenta">Grosor 40</string>
+    <string name="lapiz">Lapiz libre</string>
+    <string name="salir">Salir</string>
 
 </resources>

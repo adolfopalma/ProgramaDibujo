@@ -8,6 +8,7 @@ import android.graphics.Path;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.MotionEvent;
@@ -28,6 +29,13 @@ public class MainActivity extends AppCompatActivity
 
     RelativeLayout layout1;
     ProgressBar pbGuardar;
+    Pintar azul;
+    Pintar negro;
+    Pintar rojo;
+    Pintar verde;
+    char color;
+    int grosor;
+    String figura;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +44,23 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        azul = new Pintar(this);
+        rojo = new Pintar(this);
+        negro = new Pintar(this);
+        verde = new Pintar(this);
 
 
         layout1= (RelativeLayout) findViewById(R.id.content_main);
-        Pintar pintar = new Pintar(this);
-        layout1.addView(pintar);
+
+        color = 'A';
+        grosor=5;
+        figura="";
+
+        layout1.addView(azul);
+        layout1.addView(negro);
+        layout1.addView(rojo);
+        layout1.addView(verde);
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -68,10 +88,17 @@ public class MainActivity extends AppCompatActivity
         public void onDraw (Canvas canvas) {
             Paint paint = new Paint();
             paint.setStyle(Paint.Style.STROKE);
-            paint.setStrokeWidth(5);
-            paint.setColor(Color.BLUE);
-            canvas.drawPath(path, paint);
+            paint.setStrokeWidth(grosor);
+            paint.setColor(cambiarColor());
 
+            if(figura=="rectangulo"){
+                canvas.drawRect(x,y,x+100,y+100,paint);
+            }if(figura=="circulo"){
+                canvas.drawCircle(x,y,50,paint);
+            }
+            if(figura!="rectangulo" && figura!="circulo"){
+                canvas.drawPath(path, paint);
+            }
 
             if(accion=="down"){
                 path.moveTo(x,y);
@@ -80,6 +107,21 @@ public class MainActivity extends AppCompatActivity
                 path.lineTo(x,y);
             }
 
+        }
+        public int cambiarColor(){
+            if(color == 'A'){
+                return Color.BLUE;
+            }
+            if(color == 'N'){
+                return Color.BLACK;
+            }
+            if(color == 'R'){
+                return Color.RED;
+            }
+            if(color == 'V'){
+                return Color.GREEN;
+            }
+            return Color.BLUE;
         }
 
         public boolean onTouchEvent(MotionEvent e){
@@ -123,25 +165,64 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.borrar) {
-            Pintar pintar = new Pintar(this);
             layout1.removeAllViews();
-            layout1.addView(pintar);
+            azul = new Pintar(this);
+            negro = new Pintar(this);
+            verde = new Pintar(this);
+            rojo = new Pintar(this);
+            layout1.addView(azul);
+            layout1.addView(negro);
+            layout1.addView(verde);
+            layout1.addView(rojo);
+            figura="";
             return true;
         }
-        if (id == R.id.guardar) {
-            pbGuardar= (ProgressBar) findViewById(R.id.barra);
-            pbGuardar.setProgress(0);
-            pbGuardar.setVisibility(View.VISIBLE);
-            for(int i=0;i<=100;i++){
-                pbGuardar.setProgress(i);
-                try{
-                    Thread.sleep(20);
-                }catch (Exception e){}
-            }if(pbGuardar.getProgress()==100){
-                pbGuardar.setVisibility(View.GONE);
-            }
-            return true;
+        if (id == R.id.cinco) {
+           grosor=5;
         }
+        if (id == R.id.quince) {
+            grosor=15;
+        }
+        if (id == R.id.veinticinco) {
+            grosor=25;
+        }
+        if (id == R.id.cuarenta) {
+            grosor=40;
+        }
+        if(id==R.id.cuadrado){
+            figura="rectangulo";
+        }
+        if(id==R.id.circulo){
+            figura="circulo";
+        }
+        if(id==R.id.lapiz){
+            figura="lapiz";
+        }
+        if(id==R.id.salir){
+            System.exit(0);
+        }
+
+        if(id==R.id.negro){
+            layout1.removeView(negro);
+            layout1.addView(negro);
+            color = 'N';
+        }
+        if(id==R.id.azul){
+            layout1.removeView(azul);
+            layout1.addView(azul);
+            color = 'A';
+        }
+        if(id==R.id.rojo){
+            layout1.removeView(rojo);
+            layout1.addView(rojo);
+            color = 'R';
+        }
+        if(id==R.id.verde){
+            layout1.removeView(verde);
+            layout1.addView(verde);
+            color = 'V';
+        }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -152,9 +233,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.panel_dibujo) {
-            // Handle the camera action
-        } else if (id == R.id.cambiarRojo) {
+       if (id == R.id.cambiarRojo) {
             layout1.removeAllViews();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 Pintar pintar = new Pintar(this);

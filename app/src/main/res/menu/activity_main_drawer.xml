@@ -2,10 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/panel_dibujo"
-            android:icon="@android:drawable/alert_light_frame"
-            android:title="Panel de dibujo" />
+
         <item
             android:id="@+id/cambiarRojo"
             android:icon="@android:color/holo_red_dark"
